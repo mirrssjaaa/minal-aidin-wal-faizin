@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Idul Fitri 2026/mirrr</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cinzel+Decorative:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #f5c842;
+    --gold-light: #ffe87c;
+    --gold-dark: #c8960a;
+    --purple-deep: #1a0a3e;
+    --purple-mid: #2e1065;
+    --purple-glow: #7c3aed;
+    --purple-light: #a78bfa;
+    --cream: #fdf6e3;
+    --emerald: #10b981;
+  }
+ 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; background: var(--purple-deep); color: var(--cream); overflow-x: hidden; }
+ 
+  #stars-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+ 
+  .hero {
+    position: relative; min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding: 40px 20px 90px;
+    background: radial-gradient(ellipse at 50% 0%, #3b1578 0%, #1a0a3e 40%, #0d0520 100%);
+    overflow: hidden; z-index: 1;
+  }
+ 
+  .hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+    background: linear-gradient(90deg, transparent, var(--gold), #ffe87c, var(--gold), transparent);
+    box-shadow: 0 0 30px var(--gold);
+  }
+ 
+  .lantern-container { position: absolute; top: 0; left: 0; right: 0; height: 100%; pointer-events: none; }
+  .lantern { position: absolute; animation: sway 3s ease-in-out infinite; filter: drop-shadow(0 0 12px var(--gold)); }
+  .lantern:nth-child(1) { top: 4%; left: 4%; animation-delay: 0s; }
+  .lantern:nth-child(2) { top: 2%; right: 6%; animation-delay: 0.6s; }
+  .lantern:nth-child(3) { top: 18%; left: 1%; animation-delay: 1.1s; transform: scale(0.7); }
+  .lantern:nth-child(4) { top: 14%; right: 1%; animation-delay: 1.6s; transform: scale(0.75); }
+  @keyframes sway { 0%,100%{transform:rotate(-8deg)} 50%{transform:rotate(8deg)} }
+ 
+  .sparkle { position: absolute; background: var(--gold); clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); animation: sparkle 2s ease-in-out infinite; }
+  @keyframes sparkle { 0%,100%{opacity:0;transform:scale(0) rotate(0deg)} 50%{opacity:1;transform:scale(1) rotate(180deg)} }
+ 
+  .moon { width: 110px; height: 110px; margin: 0 auto 16px; animation: moonFloat 4s ease-in-out infinite; filter: drop-shadow(0 0 28px var(--gold)); }
+  @keyframes moonFloat { 0%,100%{transform:translateY(0) rotate(-4deg)} 50%{transform:translateY(-14px) rotate(4deg)} }
+ 
+  .title-selamat {
+    font-family: 'Cinzel Decorative', serif; font-size: clamp(1.2rem,4vw,2.5rem); color: var(--gold-light);
+    text-shadow: 0 0 40px rgba(245,200,66,0.6); letter-spacing: 3px;
+    animation: fadeInDown 1s ease forwards; opacity: 0; transform: translateY(-30px);
+  }
+  .title-idul {
+    font-family: 'Playfair Display', serif; font-size: clamp(3rem,10vw,6rem); font-weight: 900; font-style: italic;
+    background: linear-gradient(135deg,#ffe87c 0%,#f5c842 40%,#e8a800 70%,#ffe87c 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    filter: drop-shadow(0 4px 18px rgba(245,200,66,0.5)); line-height: 1.05;
+    animation: fadeInUp 1.2s 0.3s ease forwards; opacity: 0; transform: translateY(30px);
+  }
+  .title-year {
+    font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem,6vw,4rem); color: var(--gold);
+    text-shadow: 0 0 50px rgba(245,200,66,0.8);
+    animation: fadeInUp 1.2s 0.5s ease forwards; opacity: 0; transform: translateY(30px);
+  }
+  .subtitle-arabic {
+    font-size: clamp(0.7rem,2.2vw,1rem); letter-spacing: 4px; color: var(--purple-light);
+    text-transform: uppercase; margin: 10px 0 28px;
+    animation: fadeIn 1.5s 0.8s ease forwards; opacity: 0;
+  }
+ 
+  .mosque-wrapper { width: min(480px,88vw); margin: 0 auto; animation: fadeInUp 1.5s 0.6s ease forwards; opacity: 0; transform: translateY(40px); }
+ 
+  .greetings { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 36px; padding: 0 16px; animation: fadeIn 1.5s 1.2s ease forwards; opacity: 0; }
+  .greeting-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(245,200,66,0.3); border-radius: 16px;
+    padding: 16px 24px; backdrop-filter: blur(10px); text-align: center; max-width: 260px;
+    transition: all 0.3s ease;
+  }
+  .greeting-card:hover { border-color: var(--gold); background: rgba(245,200,66,0.1); transform: translateY(-4px); box-shadow: 0 10px 40px rgba(245,200,66,0.2); }
+  .greeting-card .emoji { font-size: 1.8rem; margin-bottom: 7px; display: block; }
+  .greeting-card p { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.85); }
+  .greeting-card strong { color: var(--gold-light); }
+ 
+  .scroll-hint {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+    animation: bounce 2s infinite; color: var(--gold); font-size: 0.7rem;
+    letter-spacing: 2px; text-transform: uppercase; opacity: 0.75;
+  }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+ 
+  .divider { height: 4px; background: linear-gradient(90deg,transparent,var(--gold),#ffe87c,var(--gold),transparent); position: relative; z-index: 1; }
+ 
+  /* THR */
+  .thr-section {
+    position: relative; background: linear-gradient(180deg,#0a1f10 0%,#0d2e1a 50%,#081a0d 100%);
+    padding: 70px 20px 80px; z-index: 1; overflow: hidden;
+  }
+  .thr-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%,rgba(16,185,129,0.1) 0%,transparent 70%); }
+  .thr-pattern { position: absolute; inset: 0; opacity: 0.04; background-image: repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%); background-size: 20px 20px; }
+ 
+  .thr-inner { position: relative; max-width: 700px; margin: 0 auto; text-align: center; }
+ 
+  .thr-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg,var(--gold-dark),var(--gold)); color: #1a0a00;
+    font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 2px; padding: 8px 22px; border-radius: 100px; margin-bottom: 20px;
+    text-transform: uppercase; box-shadow: 0 4px 20px rgba(245,200,66,0.4);
+  }
+  .thr-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,8vw,4.5rem); font-weight: 900;
+    background: linear-gradient(135deg,#ffe87c,var(--gold),#e8a800);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin-bottom: 6px; line-height: 1;
+  }
+  .thr-sub { font-size: 0.95rem; color: var(--emerald); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 36px; font-weight: 600; }
+ 
+  .thr-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; }
+  @media (max-width: 520px) { .thr-cards { grid-template-columns: 1fr; } }
+ 
+  .thr-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(16,185,129,0.3); border-radius: 20px;
+    padding: 26px 20px; text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden;
+  }
+  .thr-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark)); }
+  .thr-card:hover { border-color: var(--gold); background: rgba(245,200,66,0.05); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.4),0 0 30px rgba(245,200,66,0.15); }
+  .thr-card-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+  .thr-card h3 { font-family: 'Cinzel Decorative', serif; font-size: 0.85rem; color: var(--gold); letter-spacing: 2px; margin-bottom: 14px; text-transform: uppercase; }
+ 
+  .qr-box { width: 150px; height: 150px; margin: 0 auto 12px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+ 
+  .bank-info { background: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.25); border-radius: 12px; padding: 12px 16px; margin-top: 10px; }
+  .bank-info .bank-name { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--gold); letter-spacing: 1px; margin-bottom: 5px; }
+  .bank-info .account-num { font-family: 'Courier New', monospace; font-size: 1.25rem; font-weight: 700; color: white; letter-spacing: 3px; }
+  .bank-info .account-name { font-size: 0.75rem; color: var(--emerald); margin-top: 3px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+ 
+  .copy-btn {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding: 9px 20px;
+    background: linear-gradient(135deg,var(--gold-dark),var(--gold)); color: #1a0a00;
+    font-family: 'Poppins', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px;
+    border: none; border-radius: 100px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase;
+  }
+  .copy-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(245,200,66,0.4); }
+  .copy-btn:active { transform: scale(0.97); }
+ 
+  .nominal-hints { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 28px; }
+  .nominal-btn {
+    padding: 10px 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(245,200,66,0.35);
+    border-radius: 100px; color: var(--gold-light); font-family: 'Poppins',sans-serif;
+    font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+  }
+  .nominal-btn:hover { background: rgba(245,200,66,0.15); border-color: var(--gold); transform: translateY(-2px); }
+  .nominal-btn.active { background: rgba(245,200,66,0.2); border-color: var(--gold); }
+ 
+  .transfer-note {
+    margin-top: 30px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25);
+    border-radius: 16px; padding: 18px 22px; display: flex; align-items: flex-start; gap: 12px; text-align: left;
+  }
+  .transfer-note .note-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .transfer-note p { font-size: 0.85rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  .transfer-note strong { color: var(--emerald); }
+ 
+  .footer { background: #060e08; padding: 36px 20px; text-align: center; position: relative; z-index: 1; border-top: 1px solid rgba(245,200,66,0.15); }
+  .footer-msg { font-family: 'Playfair Display',serif; font-size: 1.15rem; font-style: italic; color: var(--gold); margin-bottom: 8px; }
+  .footer-sub { font-size: 0.75rem; color: rgba(255,255,255,0.35); letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; }
+ 
+  @keyframes fadeIn { to{opacity:1} }
+  @keyframes fadeInDown { to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeInUp { to{opacity:1;transform:translateY(0)} }
+ 
+  .toast {
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: var(--gold); color: #1a0a00; font-family: 'Poppins',sans-serif;
+    font-weight: 700; font-size: 0.9rem; padding: 12px 26px; border-radius: 100px;
+    z-index: 1000; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+ 
+  @media (max-width: 600px) { .greeting-card { max-width: 100%; width: 100%; } }
+</style>
+</head>
+<body>
+ 
+<canvas id="stars-bg"></canvas>
+<div class="toast" id="toast">✓ Nomor Berhasil Disalin!</div>
+ 
+<section class="hero">
+ 
+  <div class="lantern-container">
+    <div class="lantern">
+      <svg width="44" height="78" viewBox="0 0 44 78"><line x1="22" y1="0" x2="22" y2="12" stroke="#f5c842" stroke-width="2"/><ellipse cx="22" cy="16" rx="10" ry="5" fill="#f5c842"/><rect x="8" y="16" width="28" height="44" rx="14" fill="#c8960a" opacity="0.9"/><rect x="10" y="18" width="24" height="39" rx="12" fill="#f5c842" opacity="0.38"/><circle cx="22" cy="36" r="8" fill="#ffe87c" opacity="0.55"/><ellipse cx="22" cy="55" rx="10" ry="5" fill="#f5c842"/><line x1="22" y1="60" x2="22" y2="70" stroke="#f5c842" stroke-width="1.5"/><circle cx="22" cy="73" r="3" fill="#f5c842"/></svg>
+    </div>
+    <div class="lantern">
+      <svg width="54" height="92" viewBox="0 0 54 92"><line x1="27" y1="0" x2="27" y2="14" stroke="#f5c842" stroke-width="2"/><ellipse cx="27" cy="18" rx="13" ry="6" fill="#f5c842"/><rect x="10" y="18" width="34" height="54" rx="17" fill="#c8960a"/><rect x="12" y="20" width="30" height="49" rx="15" fill="#f5c842" opacity="0.33"/><circle cx="27" cy="44" r="10" fill="#ffe87c" opacity="0.5"/><ellipse cx="27" cy="67" rx="13" ry="6" fill="#f5c842"/><line x1="27" y1="73" x2="27" y2="85" stroke="#f5c842" stroke-width="1.5"/><circle cx="27" cy="89" r="3.5" fill="#f5c842"/></svg>
+    </div>
+    <div class="lantern">
+      <svg width="34" height="64" viewBox="0 0 34 64"><line x1="17" y1="0" x2="17" y2="10" stroke="#f5c842" stroke-width="1.5"/><ellipse cx="17" cy="13" rx="8" ry="4" fill="#f5c842"/><rect x="6" y="13" width="22" height="34" rx="11" fill="#c8960a"/><rect x="8" y="15" width="18" height="29" rx="9" fill="#f5c842" opacity="0.33"/><ellipse cx="17" cy="42" rx="8" ry="4" fill="#f5c842"/><line x1="17" y1="46" x2="17" y2="56" stroke="#f5c842" stroke-width="1.5"/><circle cx="17" cy="59" r="2.5" fill="#f5c842"/></svg>
+    </div>
+    <div class="lantern">
+      <svg width="40" height="75" viewBox="0 0 40 75"><line x1="20" y1="0" x2="20" y2="11" stroke="#f5c842" stroke-width="2"/><ellipse cx="20" cy="15" rx="9" ry="5" fill="#f5c842"/><rect x="7" y="15" width="26" height="42" rx="13" fill="#c8960a"/><rect x="9" y="17" width="22" height="37" rx="11" fill="#f5c842" opacity="0.36"/><circle cx="20" cy="35" r="7" fill="#ffe87c" opacity="0.55"/><ellipse cx="20" cy="52" rx="9" ry="5" fill="#f5c842"/><line x1="20" y1="57" x2="20" y2="67" stroke="#f5c842" stroke-width="1.5"/><circle cx="20" cy="70" r="3" fill="#f5c842"/></svg>
+    </div>
+  </div>
+ 
+ 
+  <div class="sparkle" style="top:14%;left:22%;animation-delay:0.3s;width:8px;height:8px;"></div>
+  <div class="sparkle" style="top:24%;right:18%;animation-delay:0.7s;width:6px;height:6px;"></div>
+  <div class="sparkle" style="top:58%;left:9%;animation-delay:1.2s;width:7px;height:7px;"></div>
+  <div class="sparkle" style="top:52%;right:11%;animation-delay:1.8s;width:5px;height:5px;"></div>
+  <div class="sparkle" style="top:9%;right:32%;animation-delay:0.5s;width:6px;height:6px;"></div>
+  <div class="sparkle" style="top:38%;left:6%;animation-delay:2.1s;width:7px;height:7px;"></div>
+  <div class="sparkle" style="top:70%;right:20%;animation-delay:1.4s;width:5px;height:5px;"></div>
+ 
+ 
+  <div class="moon">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="moonG" cx="38%" cy="33%" r="60%">
+          <stop offset="0%" stop-color="#fffde0"/>
+          <stop offset="50%" stop-color="#f5c842"/>
+          <stop offset="100%" stop-color="#c8960a"/>
+        </radialGradient>
+      </defs>
+      <path d="M60 10C28 10 10 32 10 60C10 88 28 110 60 110C75 110 85 105 90 95C72 95 42 78 42 60C42 42 68 24 90 24C85 15 73 10 60 10Z" fill="url(#moonG)"/>
+      <circle cx="44" cy="46" r="4" fill="rgba(255,255,255,0.2)"/>
+      <circle cx="37" cy="66" r="2.5" fill="rgba(255,255,255,0.15)"/>
+      <circle cx="57" cy="74" r="3" fill="rgba(255,255,255,0.1)"/>
+    </svg>
+  </div>
+ 
+  <div class="title-selamat">✦ Selamat ✦</div>
+  <div class="title-idul">Hari Raya Idul Fitri</div>
+  <div class="title-year">1447 H / 2026</div>
+  <div class="subtitle-arabic">Taqabbalallahu Minna Wa Minkum</div>
+ 
+ 
+  <div class="mosque-wrapper">
+    <svg viewBox="0 0 500 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="dG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffe87c"/><stop offset="50%" stop-color="#f5c842"/><stop offset="100%" stop-color="#c8960a"/></linearGradient>
+        <linearGradient id="wG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4a843"/><stop offset="100%" stop-color="#8b6914"/></linearGradient>
+        <radialGradient id="glow" cx="50%" cy="100%" r="50%"><stop offset="0%" stop-color="#f5c842" stop-opacity="0.25"/><stop offset="100%" stop-color="#f5c842" stop-opacity="0"/></radialGradient>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0a3e" stop-opacity="0"/><stop offset="100%" stop-color="#1a0a3e" stop-opacity="0.7"/></linearGradient>
+      </defs>
+      <ellipse cx="250" cy="278" rx="210" ry="28" fill="url(#glow)"/>
+      <ellipse cx="65" cy="262" rx="54" ry="26" fill="#1a3a20"/><ellipse cx="95" cy="252" rx="38" ry="22" fill="#1e4726"/>
+      <ellipse cx="435" cy="262" rx="54" ry="26" fill="#1a3a20"/><ellipse cx="408" cy="252" rx="38" ry="22" fill="#1e4726"/>
+ 
+      <rect x="88" y="162" width="18" height="88" rx="4" fill="url(#wG)"/>
+      <ellipse cx="97" cy="160" rx="9" ry="5" fill="#c8960a"/>
+      <path d="M92 152 Q97 138 102 152Z" fill="url(#dG)"/>
+ 
+      <rect x="394" y="162" width="18" height="88" rx="4" fill="url(#wG)"/>
+      <ellipse cx="403" cy="160" rx="9" ry="5" fill="#c8960a"/>
+      <path d="M398 152 Q403 138 408 152Z" fill="url(#dG)"/>
+ 
+      <rect x="138" y="105" width="28" height="138" rx="6" fill="url(#wG)"/>
+      <ellipse cx="152" cy="103" rx="15" ry="7" fill="#c8960a"/>
+      <path d="M144 93 Q152 70 160 93Z" fill="url(#dG)"/>
+ 
+      <rect x="334" y="105" width="28" height="138" rx="6" fill="url(#wG)"/>
+      <ellipse cx="348" cy="103" rx="15" ry="7" fill="#c8960a"/>
+      <path d="M340 93 Q348 70 356 93Z" fill="url(#dG)"/>
+ 
+ 
+ 
+ 
+ 
+      <rect x="108" y="175" width="284" height="78" rx="4" fill="url(#wG)"/>
+ 
+      <path d="M143 253L143 212Q153 197 163 212L163 253Z" fill="#ffe090" opacity="0.7"/>
+      <path d="M183 253L183 217Q193 202 203 217L203 253Z" fill="#ffe090" opacity="0.6"/>
+      <path d="M228 253L228 202Q250 182 272 202L272 253Z" fill="#ffe090" opacity="0.8"/>
+      <path d="M297 253L297 217Q307 202 317 217L317 253Z" fill="#ffe090" opacity="0.6"/>
+      <path d="M337 253L337 212Q347 197 357 212L357 253Z" fill="#ffe090" opacity="0.7"/>
+ 
+      <path d="M228 253L228 207Q250 187 272 207L272 253Z" fill="#c8960a"/>
+      <path d="M232 253L232 210Q250 192 268 210L268 253Z" fill="#ffe090" opacity="0.85"/>
+ 
+      <path d="M173 175 Q250 92 327 175Z" fill="url(#dG)"/>
+      <ellipse cx="250" cy="173" rx="77" ry="11" fill="#c8960a"/>
+ 
+ 
+ 
+ 
+      <rect x="98" y="248" width="304" height="13" rx="4" fill="#8b6914" opacity="0.55"/>
+      <rect x="0" y="0" width="500" height="290" fill="url(#sky)"/>
+    </svg>
+  </div>
+ 
+ 
+  <div class="greetings">
+    <div class="greeting-card">
+      <span class="emoji">🌙</span>
+      <p><strong>Minal Aidin Wal Faizin</strong><br>Mohon maaf lahir dan batin atas segala khilaf dan salah</p>
+    </div>
+    <div class="greeting-card">
+      <span class="emoji">🕌</span>
+      <p>Semoga amal ibadah kita diterima Allah SWT dan kita kembali ke <strong>fitrah yang suci</strong></p>
+    </div>
+    <div class="greeting-card">
+      <span class="emoji">✨</span>
+      <p>Selamat merayakan <strong>Lebaran bersama keluarga</strong> tercinta. Semoga penuh berkah & kebahagiaan</p>
+    </div>
+  </div>
+ 
+  <div class="scroll-hint">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Scroll untuk THR 🎁
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<section class="thr-section">
+  <div class="thr-pattern"></div>
+  <div class="thr-inner">
+ 
+    <div class="thr-badge">🎁 &nbsp;Khusus Hari Raya 2026</div>
+    <div class="thr-title">Amplop THR</div>
+    <div class="thr-sub">💚 Tunjangan Hari Raya 1447 H 💚</div>
+    <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);margin-bottom:36px;line-height:1.7;">
+      Semoga rezeki kita semua selalu berlimpah. <br>
+      Silakan scan QR atau transfer ke rekening di bawah ini 🙏
+    </p>
+ 
+    <div class="thr-cards">
+ 
+      <div class="thr-card">
+        <span class="thr-card-icon">📱</span>
+        <h3>Scan QRIS</h3>
+        <div class="qr-box">
+          <img src="https://files.catbox.moe/3c4s0y.png" alt="QRIS" style="width:134px;height:134px;object-fit:contain;display:block;margin:0 auto;">
+        </div>
+        <p style="font-size:0.7rem;color:rgba(255,255,255,0.45);margin-bottom:6px;line-height:1.5;">
+          ⚙️ QRIS aktif otomatis<br>Scan menggunakan aplikasi bank/e-wallet
+        </p>
+        <div class="bank-info">
+          <div class="bank-name">📲 QRIS Universal</div>
+          <div class="account-name">Berlaku di semua e-wallet & bank</div>
+        </div>
+      </div>
+ 
+      <div class="thr-card">
+        <span class="thr-card-icon">🏦</span>
+        <h3>Transfer Bank</h3>
+ 
+        <div class="bank-info" style="margin-bottom:12px;">
+          <div class="bank-name">🟢 SeaBank</div>
+          <div class="account-num">901111962826</div>
+          <div class="account-name">emirmaliq</div>
+          <button class="copy-btn" onclick="copyNum('1234567890')">📋 Salin</button>
+        </div>
+
+ 
+        <div class="bank-info">
+          <div class="bank-name">💚 GoPay / ShopeePay / Dana</div>
+          <div class="account-num">081912402061</div>
+          <div class="account-name">emirmaliq</div>
+          <button class="copy-btn" onclick="copyNum('0812345678')">📋 Salin</button>
+        </div>
+      </div>
+    </div>
+ 
+ 
+    <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;">💛 Nominal THR yang Disarankan</p>
+    <div class="nominal-hints">
+      <button class="nominal-btn">Rp 10.000</button>
+      <button class="nominal-btn">Rp 25.000</button>
+      <button class="nominal-btn">Rp 50.000</button>
+      <button class="nominal-btn">Rp 100.000</button>
+      <button class="nominal-btn">Rp 500.000</button>
+      <button class="nominal-btn">Seikhlasnya ❤️</button>
+    </div>
+ 
+    <div class="transfer-note" style="margin-top:28px;">
+      <div class="note-icon">🤲</div>
+      <p>
+        <strong>Jazakumullahu Khairan</strong> atas kebaikannya.<br>
+        Semoga setiap rupiah yang diberikan menjadi <strong>berkah berlipat ganda</strong> di hari yang fitri ini. Aamiin ya Rabbal Aalamiin 🌙✨
+      </p>
+    </div>
+  </div>
+</section>
+ 
+<footer class="footer">
+  <div class="footer-msg">"Semoga kita semua kembali suci seperti bayi yang baru lahir"</div>
+  <div class="footer-sub" style="margin-top:14px;">✦ Selamat Idul Fitri 1447 H / 2026 M ✦</div>
+  <div class="footer-sub" style="margin-top:6px;">Minal Aidin Wal Faizin · Mohon Maaf Lahir dan Batin</div>
+</footer>
+ 
+<script>
+const canvas = document.getElementById('stars-bg');
+const ctx = canvas.getContext('2d');
+function resize(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+resize(); window.addEventListener('resize', resize);
+const stars = Array.from({length:200},()=>({
+  x:Math.random(), y:Math.random(),
+  r:Math.random()*1.8+0.3,
+  speed:Math.random()*0.001+0.0003,
+  phase:Math.random()*Math.PI*2,
+  gold:Math.random()>0.82
+}));
+//chanell:https://whatsapp.com/channel/0029VanrndJICVfcrjFr3x2R//
+function drawStars(t){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  stars.forEach(s=>{
+    const a=0.3+0.6*Math.sin(t*s.speed*1000+s.phase);
+    ctx.beginPath();
+    ctx.arc(s.x*canvas.width, s.y*canvas.height, s.r, 0, Math.PI*2);
+    ctx.fillStyle = s.gold ? `rgba(245,200,66,${a})` : `rgba(255,255,255,${a})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+//chanell:https://whatsapp.com/channel/0029VanrndJICVfcrjFr3x2R//
+requestAnimationFrame(drawStars);
+//chanell:https://whatsapp.com/channel/0029VanrndJICVfcrjFr3x2R//
+function copyNum(n){
+  const fn=()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);};
+  if(navigator.clipboard){navigator.clipboard.writeText(n).then(fn).catch(()=>{fb(n);fn();});}
+  else{fb(n);fn();}
+}
+//chanell:https://whatsapp.com/channel/0029VanrndJICVfcrjFr3x2R//
+function fb(n){const t=document.createElement('textarea');t.value=n;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);}
+//chanell:https://whatsapp.com/channel/0029VanrndJICVfcrjFr3x2R//
+document.querySelectorAll('.nominal-btn').forEach(b=>{
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.nominal-btn').forEach(x=>x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
